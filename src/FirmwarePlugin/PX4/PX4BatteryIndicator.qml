@@ -29,11 +29,11 @@ BatteryIndicator {
 
             FactPanelController { id: controller }
 
-            LabelledFactSlider {
+            ValueSlider {
                 Layout.fillWidth:       true
                 Layout.preferredWidth:  ScreenTools.defaultFontPixelWidth * 20
-                label:                  qsTr("Warning Level")
-                fact:                   controller.getParameterFact(-1, "BAT_LOW_THR")
+                //label:                  qsTr("Warning Level")
+                //fact:                   controller.getParameterFact(-1, "BAT_LOW_THR")
             }   
 
             LabelledFactSlider {
