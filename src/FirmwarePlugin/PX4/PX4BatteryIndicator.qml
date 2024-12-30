@@ -32,8 +32,16 @@ BatteryIndicator {
             ValueSlider {
                 Layout.fillWidth:       true
                 Layout.preferredWidth:  ScreenTools.defaultFontPixelWidth * 20
-                //label:                  qsTr("Warning Level")
-                //fact:                   controller.getParameterFact(-1, "BAT_LOW_THR")
+                from:                   fact.min
+                to:                     fact.max
+                decimalPlaces:          fact.decimalPlaces
+                unitsString:            fact.units
+                majorTickStepSize:      5
+                label:                  qsTr("Warning Level")
+
+                Component.onCompleted: console.log("fact.incremembt", fact.increment)
+                
+                property var fact: controller.getParameterFact(-1, "BAT_LOW_THR")
             }   
 
             LabelledFactSlider {
