@@ -41,7 +41,7 @@ Button {
         QGCColoredImage {
             id:                     _icon
             height:                 ScreenTools.defaultFontPixelHeight * 2
-            width:                  height
+            width:                  height*2
             sourceSize.height:      parent.height
             fillMode:               Image.PreserveAspectFit
             color:                  logo ? "transparent" : (button.checked ? qgcPal.buttonHighlightText : qgcPal.buttonText)
