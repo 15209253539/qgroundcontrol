@@ -161,7 +161,7 @@ ApplicationWindow {
     }
 
     function showSettingsTool() {
-        showTool(qsTr("Application Settings"), "AppSettings.qml", "/res/QGCLogoWhite")
+        showTool(qsTr("Application Settings"), "AppSettings.qml", "/res/resources/WindowUser.png")
     }
 
     //-------------------------------------------------------------------------
@@ -342,7 +342,6 @@ ApplicationWindow {
             showPopupDialogFromComponent(toolSelectDialogComponent)
         }
     }
-
     Component {
         id: toolSelectDialogComponent
 
@@ -399,7 +398,7 @@ ApplicationWindow {
                         height:             _toolButtonHeight
                         Layout.fillWidth:   true
                         text:               qsTr("Application Settings")
-                        imageResource:      "/res/QGCLogoFull"
+                        imageResource:      "/res/resources/WindowUser.png"
                         imageColor:         "transparent"
                         visible:            !QGroundControl.corePlugin.options.combineSettingsAndSetup
                         onClicked: {
@@ -527,8 +526,8 @@ ApplicationWindow {
 
                 QGCColoredImage {
                     id:                     toolIcon
-                    width:                  ScreenTools.defaultFontPixelHeight * 2
-                    height:                 ScreenTools.defaultFontPixelHeight * 2
+                    width:                  ScreenTools.defaultFontPixelHeight * 3
+                    height:                 ScreenTools.defaultFontPixelHeight * 3
                     fillMode:               Image.PreserveAspectFit
                     mipmap:                 true
                     color:                  qgcPal.text
