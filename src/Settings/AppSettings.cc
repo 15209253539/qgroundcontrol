@@ -1,16 +1,8 @@
-/****************************************************************************
- *
- * (c) 2009-2020 QGROUNDCONTROL PROJECT <http://www.qgroundcontrol.org>
- *
- * QGroundControl is licensed according to the terms in the file
- * COPYING.md in the root of the source code directory.
- *
- ****************************************************************************/
-
 #include "AppSettings.h"
 #include "QGCPalette.h"
 #include "QGCApplication.h"
 #include "ParameterManager.h"
+
 
 #include <QQmlEngine>
 #include <QtQml>
@@ -35,7 +27,7 @@ const char* AppSettings::videoDirectory =           QT_TRANSLATE_NOOP("AppSettin
 const char* AppSettings::photoDirectory =           QT_TRANSLATE_NOOP("AppSettings", "Photo");
 const char* AppSettings::crashDirectory =           QT_TRANSLATE_NOOP("AppSettings", "CrashLogs");
 
-// Release languages are 90%+ complete
+
 QList<int> AppSettings::_rgReleaseLanguages = {
     QLocale::AnyLanguage,  // System
     QLocale::Chinese,
@@ -43,7 +35,7 @@ QList<int> AppSettings::_rgReleaseLanguages = {
     QLocale::Korean,
     QLocale::Azerbaijani,
 };
-// Partial languages are 40%+ complete
+
 QList<int> AppSettings::_rgPartialLanguages = {
     QLocale::German,
     QLocale::Turkish,
@@ -56,7 +48,6 @@ DECLARE_SETTINGGROUP(App, "")
 
     QSettings settings;
 
-    // These two "type" keys were changed to "class" values
     static const char* deprecatedFirmwareTypeKey    = "offlineEditingFirmwareType";
     static const char* deprecatedVehicleTypeKey     = "offlineEditingVehicleType";
     if (settings.contains(deprecatedFirmwareTypeKey)) {
@@ -76,7 +67,6 @@ DECLARE_SETTINGGROUP(App, "")
         }
     }
 
-    // Instantiate savePath so we can check for override and setup default path if needed
 
     SettingsFact* savePathFact = qobject_cast<SettingsFact*>(savePath());
     QString appName = qgcApp()->applicationName();
