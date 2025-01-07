@@ -367,6 +367,9 @@ int main(int argc, char *argv[])
 
     QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
     QGCApplication* app = new QGCApplication(argc, argv, runUnitTests);
+#if defined(QGC_AIRMAP_ENABLED)
+    , _airspaceManager  (qgcApp()->toolbox()->airspaceManager())
+#endif
     Q_CHECK_PTR(app);
     if(app->isErrorState()) {
         app->exec();

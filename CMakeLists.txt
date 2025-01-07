@@ -120,7 +120,10 @@ endif()
 #=============================================================================
 # Qt5
 #
+#target_link_libraries(QGroundControl PRIVATE Quick QuickControls2)
+
 find_package(Qt5 ${QT_VERSION}
+        REQUIRED
 	COMPONENTS
 		Bluetooth
 		Charts
@@ -144,6 +147,7 @@ find_package(Qt5 ${QT_VERSION}
 	HINTS
 		${QT_LIBRARY_HINTS}
 )
+
 
 if(NOT QT_MKSPEC MATCHES "winrt")
 	find_package(Qt5 ${QT_VERSION}
@@ -173,17 +177,18 @@ include_directories(
 add_subdirectory(libs)
 add_subdirectory(src)
 
+
 set(QGC_RESOURCES
-	${CMAKE_CURRENT_SOURCE_DIR}/qgcimages.qrc
-	${CMAKE_CURRENT_SOURCE_DIR}/qgcresources.qrc
-	${CMAKE_CURRENT_SOURCE_DIR}/qgroundcontrol.qrc
-	${CMAKE_CURRENT_SOURCE_DIR}/resources/InstrumentValueIcons/InstrumentValueIcons.qrc
-	${CMAKE_CURRENT_SOURCE_DIR}/src/Airmap/airmap.qrc
-	${CMAKE_CURRENT_SOURCE_DIR}/src/Airmap/dummy/airmap_dummy.qrc
-	${CMAKE_CURRENT_SOURCE_DIR}/src/FirmwarePlugin/APM/APMResources.qrc
-	${CMAKE_CURRENT_SOURCE_DIR}/src/FirmwarePlugin/PX4/PX4Resources.qrc
-	${CMAKE_CURRENT_SOURCE_DIR}/VideoReceiverApp/qml.qrc
-	)
+        ${CMAKE_CURRENT_SOURCE_DIR}/qgcimages.qrc
+        ${CMAKE_CURRENT_SOURCE_DIR}/qgcresources.qrc
+        ${CMAKE_CURRENT_SOURCE_DIR}/qgroundcontrol.qrc
+        ${CMAKE_CURRENT_SOURCE_DIR}/resources/InstrumentValueIcons/InstrumentValueIcons.qrc
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/Airmap/airmap.qrc
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/Airmap/dummy/airmap_dummy.qrc
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/FirmwarePlugin/APM/APMResources.qrc
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/FirmwarePlugin/PX4/PX4Resources.qrc
+        ${CMAKE_CURRENT_SOURCE_DIR}/VideoReceiverApp/qml.qrc
+        )
 
 if (WIN32)
 	# append application icon resource for Windows
